@@ -13,5 +13,6 @@
     <string name="descriptionNight_mode">Night mode</string>
     <string name="descriptionScreen_format">Screen format</string>
     <string name="descriptionVersion">Version</string>
+    <string name="second">second</string>
 
 </resources>
