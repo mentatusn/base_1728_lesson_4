@@ -14,5 +14,6 @@
     <string name="descriptionScreen_format">Screen format</string>
     <string name="descriptionVersion">Version</string>
     <string name="second">second</string>
+    <string name="main">main</string>
 
 </resources>
