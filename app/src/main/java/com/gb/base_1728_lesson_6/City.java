@@ -4,12 +4,26 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class City implements Parcelable {
-    private int imageIndex;
-    private String cityName;
+    private int index;
+
+    public City(int i) {
+        index = i;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public static Creator<City> getCREATOR() {
+        return CREATOR;
+    }
 
     protected City(Parcel in) {
-        imageIndex = in.readInt();
-        cityName = in.readString();
+        index = in.readInt();
     }
 
     public static final Creator<City> CREATOR = new Creator<City>() {
@@ -24,28 +38,6 @@ public class City implements Parcelable {
         }
     };
 
-    public City(String cityName, int imageIndex) {
-        this.cityName = cityName;
-        this.imageIndex = imageIndex;
-    }
-
-    public int getImageIndex() {
-        return imageIndex;
-    }
-
-    public void setImageIndex(int imageIndex) {
-        this.imageIndex = imageIndex;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-
     @Override
     public int describeContents() {
         return 0;
@@ -53,7 +45,6 @@ public class City implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(imageIndex);
-        parcel.writeString(cityName);
+        parcel.writeInt(index);
     }
 }

@@ -15,11 +15,11 @@ public class MyFragmentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_fragments);
 
         if (savedInstanceState == null) {
-            CitiesFragment citiesFragment = CitiesFragment.newInstance();// FIXME фабричный
+            CitiesFragment citiesFragment = CitiesFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                City defaultCity = new City("Москва",R.drawable.msc);
-                CoatOfArmsFragment coatOfArmsFragment = CoatOfArmsFragment.newInstance(defaultCity);// FIXME фабричный
+                City defaultCity = new City(0);
+                CoatOfArmsFragment coatOfArmsFragment = CoatOfArmsFragment.newInstance(defaultCity);
                 getSupportFragmentManager().beginTransaction().replace(R.id.coat_of_arms,coatOfArmsFragment).commit();
             }
         }

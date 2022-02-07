@@ -1,5 +1,6 @@
 package com.gb.base_1728_lesson_6;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class CoatOfArmsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         city = getArguments().getParcelable(ARG_CITY);
         ImageView imageView=  view.findViewById(R.id.imageView);
-        imageView.setImageResource(city.getImageIndex());
+        TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
+        imageView.setImageResource(images.getResourceId(city.getIndex(),R.drawable.msc));
     }
 }
