@@ -1,6 +1,7 @@
 package com.gb.base_1728_lesson_6;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -17,11 +18,23 @@ public class MyFragmentsActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             CitiesFragment citiesFragment = CitiesFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();
-            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                City defaultCity = new City(0);
-                CoatOfArmsFragment coatOfArmsFragment = CoatOfArmsFragment.newInstance(defaultCity);
-                getSupportFragmentManager().beginTransaction().replace(R.id.coat_of_arms,coatOfArmsFragment).commit();
-            }
+        }
+    }
+
+
+    /** Пришлось перенести наш костыль в onResume
+     * так как не onBackPressed() вызывать в onCreate - черевато
+     **/
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // ищем фрагмент, который сидит в контейнере R.id.cities_container
+        Fragment backStackFragment = (Fragment)getSupportFragmentManager()
+                .findFragmentById(R.id.cities);
+        // если такой есть, и он является CoatOfArmsFragment
+        if(backStackFragment!=null&&backStackFragment instanceof CoatOfArmsFragment){
+            //то сэмулируем нажатие кнопки Назад
+            onBackPressed();
         }
     }
 }
