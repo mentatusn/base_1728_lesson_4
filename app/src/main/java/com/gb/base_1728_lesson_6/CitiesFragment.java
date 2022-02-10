@@ -36,6 +36,7 @@ public class CitiesFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+
         outState.putParcelable(CURRENT_CITY,currentCity);
     }
 

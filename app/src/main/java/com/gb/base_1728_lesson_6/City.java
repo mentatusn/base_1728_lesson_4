@@ -3,6 +3,8 @@ package com.gb.base_1728_lesson_6;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 public class City implements Parcelable {
     private int index;
 
@@ -10,20 +12,18 @@ public class City implements Parcelable {
         index = i;
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    public static Creator<City> getCREATOR() {
-        return CREATOR;
-    }
-
     protected City(Parcel in) {
         index = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(index);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<City> CREATOR = new Creator<City>() {
@@ -38,13 +38,12 @@ public class City implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getIndex() {
+        return index;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(index);
+    public void setIndex(int index) {
+        this.index = index;
     }
+
 }
