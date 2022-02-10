@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:clickable="true"
+    android:background="@color/white"
     tools:context="com.gb.base_1728_lesson_6.CitiesFragment">
 
 

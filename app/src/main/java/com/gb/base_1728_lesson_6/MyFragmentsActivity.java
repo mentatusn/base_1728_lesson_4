@@ -1,12 +1,9 @@
 package com.gb.base_1728_lesson_6;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.widget.EditText;
 
 import com.gb.base_1728_lesson_4.R;
 
@@ -21,15 +18,6 @@ public class MyFragmentsActivity extends AppCompatActivity {
             CitiesFragment citiesFragment = CitiesFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();
         }
-
-        MyCustomEditText editText = new MyCustomEditText(this);
-        TestCustom testCustom = new TestCustom(this);
-        Bundle bundle = new Bundle();
-        //bundle.putSerializable("sdg",editText);
-        bundle.putSerializable("testCustom",testCustom);
-        Intent i= new Intent(this,TestActivity.class);
-        i.putExtras(bundle);
-        startActivity(i);
     }
 
 

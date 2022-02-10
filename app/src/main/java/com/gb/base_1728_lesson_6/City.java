@@ -3,8 +3,6 @@ package com.gb.base_1728_lesson_6;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
 public class City implements Parcelable {
     private int index;
 
