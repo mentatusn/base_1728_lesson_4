@@ -1,6 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">base_1728_lesson_4</string>
 
+    <string name="burger_open">burger open</string>
+    <string name="burger_close">burger close</string>
+
     <string name="language">English</string>
     <string name="density" tools:ignore="MissingTranslation">DPI</string>
     <string name="orientation">Portland</string>
@@ -22,5 +25,6 @@
     <string name="about_developers">about_developers</string>
     <string name="toast">toast</string>
     <string name="clear">clear</string>
+    <string name="drawer_header">drawer_header</string>
 
 </resources>
