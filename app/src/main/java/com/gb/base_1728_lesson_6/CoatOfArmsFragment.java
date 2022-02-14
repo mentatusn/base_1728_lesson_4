@@ -4,9 +4,13 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +32,24 @@ public class CoatOfArmsFragment extends Fragment {
         return fragment;
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_fragment_coat_of_arms,menu);// TODO два фрагмента в одно меню
+        //menu.add(Menu.NONE,10,Menu.NONE,"NewMenu");
+        menu.findItem(R.id.action_about).setVisible(false);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case (R.id.action_toast):{
+                Toast.makeText(requireContext()," Toast",Toast.LENGTH_LONG).show();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +61,7 @@ public class CoatOfArmsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setHasOptionsMenu(true); // !!!!!! Мы говорим, что у фрагмента есть свое меню
         city = getArguments().getParcelable(ARG_CITY);
         ImageView imageView=  view.findViewById(R.id.imageView);
         TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);

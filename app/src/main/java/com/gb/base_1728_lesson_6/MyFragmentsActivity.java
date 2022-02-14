@@ -1,7 +1,10 @@
 package com.gb.base_1728_lesson_6;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -20,6 +23,26 @@ public class MyFragmentsActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case (R.id.action_about):{
+                getSupportFragmentManager().beginTransaction().replace(R.id.cities,new AboutFragment()).addToBackStack("").commit();
+                return true;
+            }
+            case (R.id.action_exit):{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     /** Пришлось перенести наш костыль в onResume
      * так как не onBackPressed() вызывать в onCreate - черевато
