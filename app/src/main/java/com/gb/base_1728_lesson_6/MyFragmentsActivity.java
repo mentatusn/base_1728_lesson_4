@@ -6,6 +6,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.gb.base_1728_lesson_4.R;
@@ -21,6 +22,9 @@ public class MyFragmentsActivity extends AppCompatActivity {
             CitiesFragment citiesFragment = CitiesFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();
         }
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
