@@ -3,6 +3,7 @@ package com.gb.base_1728_lesson_6;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -66,6 +68,31 @@ public class CoatOfArmsFragment extends Fragment {
         ImageView imageView=  view.findViewById(R.id.imageView);
         TypedArray images = getResources().obtainTypedArray(R.array.coat_of_arms_imgs);
         imageView.setImageResource(images.getResourceId(city.getIndex(),R.drawable.msc));
+        view.findViewById(R.id.btnAnchor).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(requireContext(),view, Gravity.CENTER);
+                requireActivity().getMenuInflater().inflate(R.menu.popup,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case (R.id.action_popup_clear):{
+                                imageView.setImageAlpha(0);
+                                return true;
+                            }
+                            case (R.id.action_popup_exit):{
+                                requireActivity().finish();
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+                return false;
+            }
+        });
     }
 
     @Override
