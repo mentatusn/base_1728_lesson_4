@@ -1,7 +1,12 @@
 package com.gb.lesson9;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import com.gb.base_1728_lesson_4.R;
@@ -52,17 +59,40 @@ public class LessonNinthFragments extends Fragment {
         view.findViewById(R.id.btnDialogFragment).setOnClickListener(v -> showDialogFragment());
         view.findViewById(R.id.btnDialogFragmentCustom).setOnClickListener(v -> showDialogFragmentCustom());
         view.findViewById(R.id.btnBottomSheetDialogFragment).setOnClickListener(v -> showBottomSheetDialogFragment());
+        view.findViewById(R.id.btnPushNotification).setOnClickListener(v -> showPushNotification());
     }
 
-    void showBottomSheetDialogFragment(){
-        new MyBottomSheetDialogFragment().show(getActivity().getSupportFragmentManager(),"sdfgv");
+    public final String CHANNEL_ID = "1";
+
+    void showPushNotification() {
+        //NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireContext());
+        NotificationManager notificationManager =(NotificationManager) requireActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "CHANNEL1", NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.setDescription("Это канал для то-то и то-то");
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+
+        Notification notification = new NotificationCompat.Builder(requireContext(),CHANNEL_ID)
+                .setContentTitle("Заголовок пуша")
+                .setContentText("Текст пуша")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .build();
+
+        notificationManager.notify(1, notification);
     }
 
-    void showDialogFragmentCustom(){
-        new MyDialogFragmentCustom().show(getActivity().getSupportFragmentManager(),"sdfgv");
+    void showBottomSheetDialogFragment() {
+        new MyBottomSheetDialogFragment().show(getActivity().getSupportFragmentManager(), "sdfgv");
     }
-    void showDialogFragment(){
-        new MyDialogFragment().show(getActivity().getSupportFragmentManager(),"sdfgv");
+
+    void showDialogFragmentCustom() {
+        new MyDialogFragmentCustom().show(getActivity().getSupportFragmentManager(), "sdfgv");
+    }
+
+    void showDialogFragment() {
+        new MyDialogFragment().show(getActivity().getSupportFragmentManager(), "sdfgv");
     }
 
     void showAlertDialogCustom() {
