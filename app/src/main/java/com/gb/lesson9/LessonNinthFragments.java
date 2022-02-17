@@ -49,13 +49,21 @@ public class LessonNinthFragments extends Fragment {
         view.findViewById(R.id.btnSnackBarWithAction).setOnClickListener(v -> showSnackBarWithAction(view));
         view.findViewById(R.id.btnAlertDialog).setOnClickListener(v -> showAlertDialog());
         view.findViewById(R.id.btnAlertDialogCustom).setOnClickListener(v -> showAlertDialogCustom());
+        view.findViewById(R.id.btnDialogFragment).setOnClickListener(v -> showDialogFragment());
+        view.findViewById(R.id.btnDialogFragmentCustom).setOnClickListener(v -> showDialogFragmentCustom());
+    }
+
+    void showDialogFragmentCustom(){
+        new MyDialogFragmentCustom().show(getActivity().getSupportFragmentManager(),"sdfgv");
+    }
+    void showDialogFragment(){
+        new MyDialogFragment().show(getActivity().getSupportFragmentManager(),"sdfgv");
     }
 
     void showAlertDialogCustom() {
         View view = getLayoutInflater().inflate(R.layout.dialog_custom, null);
         AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
                 .setTitle("AlertDialog")
-                .setMessage("AlertDialog message")
                 .setView(view)
                 .show();
         view.findViewById(R.id.buttonCustomView).setOnClickListener(v -> {

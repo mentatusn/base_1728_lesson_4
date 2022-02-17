@@ -3,6 +3,7 @@ package com.gb.base_1728_lesson_6;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,6 +17,11 @@ import com.gb.lesson9.LessonNinthFragments;
 import com.google.android.material.navigation.NavigationView;
 
 public class MyFragmentsActivity extends AppCompatActivity {
+
+
+    public void onDialogResult(String message){
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
