@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.gb.base_1728_lesson_4.R;
+import com.gb.lesson9.LessonNinthFragments;
 import com.google.android.material.navigation.NavigationView;
 
 public class MyFragmentsActivity extends AppCompatActivity {
@@ -22,8 +23,10 @@ public class MyFragmentsActivity extends AppCompatActivity {
         setContentView(R.layout.bonus_activity_my_fragments);
 
         if (savedInstanceState == null) {
-            CitiesFragment citiesFragment = CitiesFragment.newInstance();
-            getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();
+            /*CitiesFragment citiesFragment = CitiesFragment.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();*/
+            LessonNinthFragments lessonNinthFragments = LessonNinthFragments.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.cities, lessonNinthFragments).commit();
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
