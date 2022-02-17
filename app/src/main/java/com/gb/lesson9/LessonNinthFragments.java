@@ -42,8 +42,16 @@ public class LessonNinthFragments extends Fragment {
         }); это то же самое что и 41 строка */
         view.findViewById(R.id.btnToast).setOnClickListener(v -> showToast());
         view.findViewById(R.id.btnSnackBar).setOnClickListener(v -> showSnackBar(view));
+        view.findViewById(R.id.btnSnackBarWithAction).setOnClickListener(v -> showSnackBarWithAction(view));
     }
 
+    void showSnackBarWithAction(View view){
+        Snackbar.make(view,"SnackBarWithAction работает",Snackbar.LENGTH_LONG).setAction(
+                "Попробововать еще раз", v -> {
+                    showToast();
+                }
+        ).show(); //TODO
+    }
     void showSnackBar(View view){
         Snackbar.make(view,"SnackBar работает",Snackbar.LENGTH_LONG).show();
     }

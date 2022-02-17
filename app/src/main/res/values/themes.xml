@@ -6,6 +6,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="materialButtonStyle"> @style/myButtonStyle</item>
+        <item name="snackbarButtonStyle"> @style/mySnackBar</item>
     </style>
 
 
@@ -70,6 +71,10 @@
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="backgroundTint">@color/green</item>
+    </style>
+
+    <style name="mySnackBar" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="myStyleTheme">

@@ -19,5 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSnackBarWithAction"
+        android:text="Показать SnackBarWithAction"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>
