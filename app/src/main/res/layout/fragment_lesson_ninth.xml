@@ -1,72 +1,98 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context="com.gb.base_1728_lesson_6.CitiesFragment">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnToast"
-        android:text="Показать Toast"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context="com.gb.base_1728_lesson_6.CitiesFragment">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSnackBar"
-        android:text="Показать SnackBar"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnToast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Показать Toast" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSnackBarWithAction"
-        android:text="Показать SnackBarWithAction"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSnackBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать SnackBar" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAlertDialog"
-        android:text="Показать AlertDialog"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSnackBarWithAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать SnackBarWithAction" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAlertDialogCustom"
-        android:text="Показать AlertDialogCustom"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlertDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать AlertDialog" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnDialogFragment"
-        android:text="Показать DialogFragment"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlertDialogCustom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать AlertDialogCustom" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnDialogFragmentCustom"
-        android:text="Показать DialogFragmentCustom"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDialogFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать DialogFragment" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnBottomSheetDialogFragment"
-        android:text="Показать BottomSheet"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDialogFragmentCustom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать DialogFragmentCustom" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnPushNotification"
-        android:text="Показать PushNotification"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBottomSheetDialogFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать BottomSheet" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPushNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать PushNotification" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlertDialogCustomList"
+            style="@style/myButtonStyleFacultative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать AlertDialogCustomList" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlertDialogCustomListSingleChoice"
+            style="@style/myButtonStyleFacultative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать SingleChoice" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlertDialogCustomListMultiChoice"
+            style="@style/myButtonStyleFacultative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Показать MultiChoice" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

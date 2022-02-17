@@ -13,7 +13,9 @@ import com.gb.base_1728_lesson_4.R;
 import com.gb.base_1728_lesson_6.MyFragmentsActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class MyBottomSheetDialogFragment extends BottomSheetDialogFragment {
+public class MyBottomSheetDialogFragment extends BottomSheetDialogFragment  {
+
+    private OnDialogListener dialogListener;
 
     @Nullable
     @Override
@@ -24,14 +26,19 @@ public class MyBottomSheetDialogFragment extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        dialogListener = ((MyFragmentsActivity)  getActivity());
         initView(view);
     }
 
     void initView(View view) {
         view.findViewById(R.id.buttonCustomView).setOnClickListener(v -> {
             EditText editText = view.findViewById(R.id.editTextCustomView);
-            ((MyFragmentsActivity) getActivity()).onDialogResult(editText.getText().toString());
+            dialogListener.onDialogResult(editText.getText().toString());
             dismiss();
         });
     }
+
+
+
+
 }

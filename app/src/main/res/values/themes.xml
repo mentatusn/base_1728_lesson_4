@@ -73,6 +73,14 @@
         <item name="backgroundTint">@color/green</item>
     </style>
 
+    <style name="myButtonStyleFacultative" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/aclonica</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="backgroundTint">@color/red_900</item>
+    </style>
+
     <style name="mySnackBar" parent="Widget.MaterialComponents.Button.TextButton.Snackbar">
         <item name="android:textSize">15sp</item>
     </style>

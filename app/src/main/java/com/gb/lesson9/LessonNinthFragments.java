@@ -60,10 +60,42 @@ public class LessonNinthFragments extends Fragment {
         view.findViewById(R.id.btnDialogFragmentCustom).setOnClickListener(v -> showDialogFragmentCustom());
         view.findViewById(R.id.btnBottomSheetDialogFragment).setOnClickListener(v -> showBottomSheetDialogFragment());
         view.findViewById(R.id.btnPushNotification).setOnClickListener(v -> showPushNotification());
+        view.findViewById(R.id.btnAlertDialogCustomList).setOnClickListener(v -> showAlertDialogCustomList());
+        view.findViewById(R.id.btnAlertDialogCustomListSingleChoice).setOnClickListener(v -> showAlertDialogCustomListSingleChoice());
+        view.findViewById(R.id.btnAlertDialogCustomListMultiChoice).setOnClickListener(v -> showAlertDialogCustomListMultiChoice());
     }
 
     public final String CHANNEL_ID = "1";
 
+    void showAlertDialogCustomListMultiChoice() {
+        String[] cities = getResources().getStringArray(R.array.cities);
+        boolean[] choosen = new boolean[]{false,false,false,false,false};
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Выберите город")
+                .setMultiChoiceItems(cities, choosen, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        choosen[which] = isChecked;
+                        showToast("Выбрали "+cities[which]+" ");
+                    }
+                })
+                .show();
+    }
+    void showAlertDialogCustomListSingleChoice() {
+        String[] cities = getResources().getStringArray(R.array.cities);
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Выберите город")
+                .setSingleChoiceItems(cities,-1,(dialog, which) -> showToast("Выбрали "+cities[which]+" "))
+                .show();
+    }
+
+    void showAlertDialogCustomList() {
+        String[] cities = getResources().getStringArray(R.array.cities);
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Выберите город")
+                .setItems(cities,(dialog, which) -> showToast("Выбрали "+cities[which]+" "))
+                .show();
+    }
     void showPushNotification() {
         //NotificationManagerCompat notificationManager = NotificationManagerCompat.from(requireContext());
         NotificationManager notificationManager =(NotificationManager) requireActivity().getSystemService(Context.NOTIFICATION_SERVICE);

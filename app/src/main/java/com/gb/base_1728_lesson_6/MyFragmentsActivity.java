@@ -14,11 +14,14 @@ import androidx.fragment.app.Fragment;
 
 import com.gb.base_1728_lesson_4.R;
 import com.gb.lesson9.LessonNinthFragments;
+import com.gb.lesson9.OnDialogListener;
 import com.google.android.material.navigation.NavigationView;
 
-public class MyFragmentsActivity extends AppCompatActivity {
+public class MyFragmentsActivity extends AppCompatActivity implements OnDialogListener {
 
 
+
+    @Override
     public void onDialogResult(String message){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
