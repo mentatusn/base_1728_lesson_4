@@ -55,13 +55,17 @@ public class CitiesFragment extends Fragment {
     }
 
     private void initView(View view) {
+        LinearLayout linearLayout = (LinearLayout) view;
+        LayoutInflater layoutInflater = getLayoutInflater();
         String[] cities = getResources().getStringArray(R.array.cities);
         for (int i=0;i<cities.length;i++){
             String cityName = cities[i];
-            TextView textView = new TextView(getContext());
+            View listItem = layoutInflater.inflate(R.layout.fragment_cities_list_cities_item,linearLayout,false);
+            linearLayout.addView(listItem);
+
+            TextView textView = listItem.findViewById(R.id.textView);
             textView.setTextSize(30f);
             textView.setText(cityName);
-            ((LinearLayout) view).addView(textView);
             final int finalI = i;
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override

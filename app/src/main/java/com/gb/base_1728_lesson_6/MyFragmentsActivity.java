@@ -32,10 +32,10 @@ public class MyFragmentsActivity extends AppCompatActivity implements OnDialogLi
         setContentView(R.layout.bonus_activity_my_fragments);
 
         if (savedInstanceState == null) {
-            /*CitiesFragment citiesFragment = CitiesFragment.newInstance();
-            getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();*/
-            LessonNinthFragments lessonNinthFragments = LessonNinthFragments.newInstance();
-            getSupportFragmentManager().beginTransaction().replace(R.id.cities, lessonNinthFragments).commit();
+            CitiesFragment citiesFragment = CitiesFragment.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.cities, citiesFragment).commit();
+            /*LessonNinthFragments lessonNinthFragments = LessonNinthFragments.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.cities, lessonNinthFragments).commit();*/
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
